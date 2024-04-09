@@ -32,5 +32,14 @@ services:
     restart: always
     ports:
       - "8080:8080"
+  mystore_frontend:
+    build:
+      context: ./mystore_frontend
+      dockerfile: Dockerfile
+    restart: always
+    depends_on:
+       - mystore_ms
+    ports:
+      - "8085:80"
 volumes:
   mysql-data:
